@@ -1,0 +1,191 @@
+.green {
+  color: green;
+}
+.orange {
+  color: orange;
+}
+.red {
+  color: red;
+}
+.correct-answer {
+  color: green;
+}
+.incorrect-answer {
+  color: red;
+}
+.home-image {
+  cursor: pointer;
+}
+.home-image:hover {
+  transform: translate3d(0, 0.25rem, 0);
+}
+@media only screen and (min-width: 550px) {
+  .home-image {
+    width: 3.5vw;
+  }
+  .performance-details h2 {
+    font-size: 1.75vw;
+  }
+  .performance-details h3 {
+    font-size: 1.5vw;
+  }
+  .summary-heading {
+    padding-top: 2vw;
+    text-align: center;
+    color: #fff;
+    font-size: 2.5vw;
+  }
+  .summary-text {
+    color: #ccc;
+    font-size: 1.5vw;
+  }
+  hr {
+    border-top: 0.25vw dashed rgb(255, 255, 255);
+  }
+  .performance-container {
+    background-color: #222;
+    width: 90vw;
+    margin: 2vw auto;
+    border-radius: 0.5vw;
+    box-shadow: 0 0 0.5vw rgba(255, 255, 255, 0.485);
+  }
+  .performance-summary {
+    border-radius: 0.25vw;
+    padding: 2.5vw 35vw;
+  }
+  .performance-summary p {
+    margin: 1vw 0;
+  }
+  .percentage {
+    font-size: 2vw;
+    font-weight: bold;
+  }
+  .performance-details {
+    background-color: #222;
+    border-radius: 0.25vw;
+    padding: 5vw;
+  }
+  .performance-item {
+    margin-bottom: 2vw;
+    border-bottom: 0.25vw solid #007bff;
+  }
+  .explanation-toggle {
+    cursor: pointer;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 1.25vw;
+    margin-top: 1.5vw;
+  }
+  .explanation {
+    margin-top: 0.5vw;
+    font-size: 1.25vw;
+    border-left: 0.25vw solid #007bff;
+    padding: 0.75vw;
+  }
+  @keyframes sparkle {
+    0% {
+      color: gold;
+      text-shadow: 0.1vw 0.1vw 0.5vw gold;
+    }
+    33% {
+      color: yellow;
+      text-shadow: -0.1vw 0.1vw 0.5vw gold;
+    }
+    66% {
+      color: gold;
+      text-shadow: 0.1vw -0.1vw 0.5vw gold;
+    }
+    100% {
+      color: yellow;
+      text-shadow: -0.1vw -0.1vw 0.5vw gold;
+    }
+  }
+  .sparkling {
+    animation: sparkle 0.5s infinite;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .home-image {
+    width: 3.5vh;
+  }
+  .performance-details h2 {
+    font-size: 1.75vh;
+  }
+  .performance-details h3 {
+    font-size: 1.5vh;
+  }
+  .summary-heading {
+    padding-top: 2vh;
+    text-align: center;
+    color: #fff;
+    font-size: 2.5vh;
+  }
+  .summary-text {
+    color: #ccc;
+    font-size: 1.5vh;
+  }
+  hr {
+    border-top: 0.25vh dashed rgb(255, 255, 255);
+  }
+  .performance-container {
+    background-color: #000000;
+    width: 90vw;
+    margin: 2vh auto;
+    border-radius: 0.5vh;
+    box-shadow: 0 0 0.5vh rgba(255, 255, 255, 0.485);
+  }
+  .performance-summary {
+    border-radius: 0.25vh;
+    padding: 2.5vh 25vw;
+  }
+  .performance-summary p {
+    margin: 1vh 0;
+  }
+  .percentage {
+    font-size: 1.984vh;
+    font-weight: bold;
+  }
+  .performance-details {
+    background-color: #000000;
+    border-radius: 0.25vh;
+    padding: 5vh;
+  }
+  .performance-item {
+    margin-bottom: 2vh;
+    border-bottom: 0.25vh solid #007bff;
+  }
+  .explanation-toggle {
+    cursor: pointer;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 1.5vh;
+    margin-top: 1.5vh;
+  }
+  .explanation {
+    margin-top: 0.5vh;
+    font-size: 1.5vh;
+    border-left: 0.25vh solid #007bff;
+    padding: 0.75vh;
+  }
+  @keyframes sparkle {
+    0% {
+      color: gold;
+      text-shadow: 0.1vh 0.1vh 0.5vh gold;
+    }
+    33% {
+      color: yellow;
+      text-shadow: -0.1vh 0.1vh 0.5vh gold;
+    }
+    66% {
+      color: gold;
+      text-shadow: 0.1vh -0.1vh 0.5vh gold;
+    }
+    100% {
+      color: yellow;
+      text-shadow: -0.1vh -0.1vh 0.5vh gold;
+    }
+  }
+  .sparkling {
+    animation: sparkle 0.5s infinite;
+  }
+}

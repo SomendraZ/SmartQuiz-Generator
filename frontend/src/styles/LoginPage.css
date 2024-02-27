@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: Courier, monospace;
+  user-select: none;
+}
+
+body {
+  background-image: url("../resources/blackBG.avif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+button:hover {
+  box-shadow: 5px 5px rgb(125, 125, 125);
+  transform: translate3d(-0.25em,-0.25em,0);
+}
+
+@media only screen and (min-width: 550px) {
+  .container {
+    text-align: center;
+    padding: 2.5vw;
+  }
+
+  .quiz-image {
+    width: 13.75vw;
+    margin: 5vh;
+  }
+  .appName {
+    font-size: 3.25vw;
+    padding: 0 5vw;
+  }
+  .description {
+    margin-top: 5vh;
+    font-size: 1.75vw;
+    padding: 0 7.5vw;
+  }
+
+  .container button {
+    margin-top: 5vh;
+  }
+  button {
+    background-color: white;
+    font-size: 1.5vw;
+    color: black;
+    padding: 1vw 2vw;
+    border: none;
+    border-radius: 0.75vw;
+    cursor: pointer;
+  }
+  .google {
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  #google {
+    width: 3vw;
+    margin-right: 0.75vw;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .container {
+    text-align: center;
+    padding: 2.5vw;
+  }
+
+  .quiz-image {
+    width: 15vh;
+    margin: 5vh;
+  }
+  .appName {
+    font-size: 4vh;
+    padding: 0 5vw;
+  }
+  .description {
+    margin-top: 5vh;
+    font-size: 2.55vh;
+    padding: 0 5vw;
+  }
+
+  .container button {
+    margin-top: 5vh;
+  }
+  button {
+    background-color: white;
+    color: black;
+    font-size: 2vh;
+    padding: 1vh 2vh;
+    border: none;
+    border-radius: 0.75vh;
+    cursor: pointer;
+  }
+  .google {
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  #google {
+    width: 5vh;
+    margin-right: 0.75vh;
+  }
+}

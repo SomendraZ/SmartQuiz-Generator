@@ -1,0 +1,72 @@
+[
+  {
+    "question": "Who developed and maintains the React library?",
+    "options": ["Google", "Microsoft", "Facebook", "Amazon"],
+    "answer": "Facebook",
+    "explanation": "React is developed and maintained by Facebook."
+  },
+  {
+    "question": "What architecture does React follow?",
+    "options": ["MVC", "Component-based", "REST", "Observer"],
+    "answer": "Component-based",
+    "explanation": "React follows a component-based architecture."
+  },
+  {
+    "question": "What does React use to efficiently update the UI?",
+    "options": ["Virtual DOM", "Real DOM", "Shadow DOM", "Static DOM"],
+    "answer": "Virtual DOM",
+    "explanation": "React uses a virtual DOM to efficiently update the UI."
+  },
+  {
+    "question": "How does React minimize the number of DOM manipulations?",
+    "options": [
+      "By using inline styles",
+      "By avoiding JavaScript",
+      "By using a virtual DOM",
+      "By using jQuery"
+    ],
+    "answer": "By using a virtual DOM",
+    "explanation": "React minimizes the number of DOM manipulations by using a virtual DOM."
+  },
+  {
+    "question": "What approach does React employ for creating UI?",
+    "options": ["Imperative", "Declarative", "Procedural", "Functional"],
+    "answer": "Declarative",
+    "explanation": "React employs a declarative approach for creating UI."
+  },
+  {
+    "question": "What syntax extension does React encourage the use of?",
+    "options": ["JSON", "XML", "HTML", "JSX"],
+    "answer": "JSX",
+    "explanation": "React encourages the use of JSX, a syntax extension that allows embedding HTML-like code within JavaScript."
+  },
+  {
+    "question": "Which tool is commonly used with React for routing?",
+    "options": ["Angular", "Vue", "React Router", "Redux"],
+    "answer": "React Router",
+    "explanation": "React Router is commonly used with React for routing."
+  },
+  {
+    "question": "What is Redux used for in relation to React?",
+    "options": ["Styling", "State management", "Routing", "Testing"],
+    "answer": "State management",
+    "explanation": "Redux is used for state management in relation to React."
+  },
+  {
+    "question": "What kind of applications has React become a preferred choice for building?",
+    "options": [
+      "Desktop apps",
+      "Mobile apps",
+      "Web applications",
+      "Gaming consoles"
+    ],
+    "answer": "Web applications",
+    "explanation": "React has become the go-to choice for building modern web applications."
+  },
+  {
+    "question": "What makes it easier to write and understand UI components in React?",
+    "options": ["Virtual DOM", "jQuery", "JSX", "REST"],
+    "answer": "JSX",
+    "explanation": "JSX makes it easier to write and understand UI components in React."
+  }
+]

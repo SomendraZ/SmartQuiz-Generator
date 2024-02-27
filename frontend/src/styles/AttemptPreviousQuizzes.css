@@ -1,0 +1,22 @@
+.disabled-button {
+  cursor: not-allowed;
+}
+.previous-quiz-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 55vh;
+  justify-content: space-evenly;
+}
+
+@media only screen and (min-width: 550px) {
+  .previous-quiz-container button {
+    margin-top: 0.75vw;
+    margin-bottom: 0.75vw;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .previous-quiz-container button {
+    margin-top: 0.75vh;
+    margin-bottom: 0.75vh;
+  }
+}

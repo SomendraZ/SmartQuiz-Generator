@@ -1,0 +1,108 @@
+.submit-paragraph-container {
+  text-align: center;
+}
+.radio-group label:hover {
+  background-color: #e0e0e0;
+}
+.radio-group input[type="radio"]:checked + label {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+.radio-group input[type="radio"] {
+  display: none;
+}
+
+@media only screen and (min-width: 550px) {
+  .quiz-name-input {
+    width: 90vw;
+    font-size: 1.2vw;
+    padding: 0.75vw;
+    margin: 2vw 0;
+    color: black;
+  }
+  .paragraph-input {
+    max-width: 90vw;
+    max-height: 45vh;
+    min-width: 90vw;
+    min-height: 45vh;
+    font-size: 1.2vw;
+    padding: 0.75vw;
+    margin-bottom: 1vw;
+    color: black;
+  }
+  .radio-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5vw;
+  }
+  .radio-group label {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 1vh 2vw;
+    margin: 0 1vh;
+    cursor: pointer;
+    border-radius: 0.5vw;
+    border: 0.2vw solid transparent;
+    transition: all 0.3s ease;
+  }
+  .quiz-button {
+    background-color: #66ff00;
+    box-shadow: 5px 5px #018749;
+  }
+  .quiz-button:hover {
+    background-color: #66ff00;
+    box-shadow: 0px 0px #018749;
+    transform: translate3d(0.25em,  0.25em, 0);
+  }
+}
+@media only screen and (max-width: 550px) {
+  .navbar {
+    font-size: 2vh;
+  }
+  .quiz-name-input {
+    width: 90vw;
+    font-size: 1.75vh;
+    padding: 0.75vh;
+    margin: 2vh 0;
+    color: black;
+  }
+  .paragraph-input {
+    max-width: 90vw;
+    max-height: 45vh;
+    min-width: 90vw;
+    min-height: 45vh;
+    font-size: 1.75vh;
+    padding: 0.75vh;
+    margin-bottom: 2.5vh;
+    color: black;
+  }
+  .radio-group {
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3.5vh;
+  }
+  .radio-group label {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 1vh 2vw;
+    margin: 1vh 1vh;
+    cursor: pointer;
+    border-radius: 0.5vh;
+    border: 0.2vh solid transparent;
+    transition: all 0.3s ease;
+  }
+  .quiz-button {
+    background-color: #66ff00;
+    box-shadow: 3px 3px #018749;
+  }
+  .quiz-button:hover {
+    background-color: #66ff00;
+    box-shadow: 0px 0px #018749;
+    transform: translate3d(0.25em,  0.25em, 0);
+  }
+}

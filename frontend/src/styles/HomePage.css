@@ -1,0 +1,70 @@
+.navbar-right button {
+  background-color: #ff1100;
+  color: #fff;
+}
+.navbar-right button:hover {
+  background-color: #f95d5d;
+  box-shadow: 0px 0px rgb(255, 255, 255);
+  transform: translateY(0em);
+}
+
+@media only screen and (min-width: 550px) {
+  .homepage-container {
+    margin-top: 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1vw;
+  }
+  .homepage-container button {
+    width: 40vw;
+    height: 5vw;
+    margin: 2vh;
+  }
+  .navbar {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 5vw;
+    padding: 0 5vw;
+    border-bottom: 0.25vw double rgb(255, 255, 255);
+  }
+  .navbar-left {
+    font-size: 1.35vw;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+    .homepage-container {
+        margin-top: 20vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .homepage-container button {
+        width: 40vh;
+        height: 10vh;
+        margin: 2.5vw;
+      }
+      .navbar {
+        background-color: #333;
+        color: #fff;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 7.5vh;
+        padding: 0 2.75vh;
+        border-bottom: 0.25vh double rgb(255, 255, 255);
+      }
+      .navbar-left {
+        font-size: 1.35vh;
+      }
+      .navbar-right button{
+        height: 4vh;
+        font-size: 2vh;
+      }
+}
