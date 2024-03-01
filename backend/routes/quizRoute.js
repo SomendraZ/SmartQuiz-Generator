@@ -83,6 +83,22 @@ router.get("/quizzes/:userEmail", async (req, res) => {
   }
 });
 
+router.get("/quiz/:userEmail/:quizName", async (req, res) => {
+  try {
+    const userEmail = req.params.userEmail;
+    const quizName = req.params.quizName;
 
+    const quiz = await Quiz.findOne({ userEmail, quizName });
+
+    if (!quiz) {
+      return res.status(404).json({ message: "Quiz not found" });
+    }
+
+    res.status(200).json({ quiz });
+  } catch (error) {
+    console.error("Error retrieving quiz:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
 
 export { router as quizRoutes };
