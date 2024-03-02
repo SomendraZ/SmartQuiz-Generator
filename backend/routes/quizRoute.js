@@ -101,4 +101,22 @@ router.get("/quiz/:userEmail/:quizName", async (req, res) => {
   }
 });
 
+router.get("/quizNames/:userEmail", async (req, res) => {
+  try {
+    const userEmail = req.params.userEmail;
+    const quizzes = await Quiz.find({ userEmail }).select("quizName");
+
+    if (!quizzes || quizzes.length === 0) {
+      return res.status(404).json({ message: "No quizzes found for the user" });
+    }
+
+    const quizNames = quizzes.map((quiz) => quiz.quizName);
+
+    res.status(200).json({ quizNames });
+  } catch (error) {
+    console.error("Error retrieving quiz names:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 export { router as quizRoutes };
