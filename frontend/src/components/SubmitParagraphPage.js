@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "../styles/SubmitParagraphPage.css";
 import homeImg from "../resources/home.png";
 const generateQuizEndpoint = process.env.REACT_APP_GENERATE_QUIZ_ENDPOINT;
+const viewQuizNamesEndpoint = process.env.REACT_APP_VIEW_QUIZ_NAMES_ENDPOINT;
 
 const SubmitParagraphPage = ({ dynamicPathPrefix, userEmail }) => {
   const navigate = useNavigate();
@@ -31,30 +32,45 @@ const SubmitParagraphPage = ({ dynamicPathPrefix, userEmail }) => {
       });
     } else {
       try {
-        toast.info("Generating quiz...", {
-          position: "top-center",
-          autoClose: false,
-        });
+        const existingQuizNames = quizData || [];
+        const isNameExists = existingQuizNames.includes(quizName);
 
-        const response = await axios.post(
-          `${generateQuizEndpoint}`,
-          {
+        if (isNameExists) {
+          const existingNamesWithQuotes = existingQuizNames
+            .map((name) => `"${name}"`)
+            .join(", ");
+          toast.error(
+            `Quiz name already exists. Please enter a different name other than ${existingNamesWithQuotes}.`,
+            {
+              position: "top-center",
+              autoClose: 3000,
+            }
+          );
+        } else {
+          toast.info("Generating quiz...", {
+            position: "top-center",
+            autoClose: false,
+          });
+
+          const response = await axios.post(`${generateQuizEndpoint}`, {
             quizName,
             userEmail,
             paragraph,
             numberOfQuestions,
-          }
-        );
+          });
 
-        const quizData = response.data.quiz;
-        setQuizData(quizData);
-        toast.dismiss();
-        navigate(
-          `${dynamicPathPrefix}/quiz/${encodeURIComponent(quizData.quizName)}`,
-          {
-            state: { quizData },
-          }
-        );
+          const quizData = response.data.quiz;
+          setQuizData(quizData);
+          toast.dismiss();
+          navigate(
+            `${dynamicPathPrefix}/quiz/${encodeURIComponent(
+              quizData.quizName
+            )}`,
+            {
+              state: { quizData },
+            }
+          );
+        }
       } catch (error) {
         console.error("Error submitting quiz:", error);
         toast.error(
@@ -80,6 +96,20 @@ const SubmitParagraphPage = ({ dynamicPathPrefix, userEmail }) => {
   const handleRadioChange = (event) => {
     setNumberOfQuestions(parseInt(event.target.value));
   };
+
+  useEffect(() => {
+    const fetchQuizNames = async () => {
+      try {
+        const response = await axios.get(
+          `${viewQuizNamesEndpoint}${userEmail}`
+        );
+        setQuizData(response.data.quizNames);
+      } catch (error) {
+        console.error("Error fetching quiz names:", error);
+      }
+    };
+    fetchQuizNames();
+  }, [viewQuizNamesEndpoint, userEmail]);
 
   return (
     <>
