@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import axios from "axios";
 import "../styles/PerformancePage.css";
 import homeImg from "../resources/home.png";
+import reattemptImg from "../resources/reattempt.png";
+const reattemptQuiz=process.env.REACT_APP_VIEW_QUIZ_ENDPOINT;
 
 const PerformancePage = ({ dynamicPathPrefix }) => {
   const navigate = useNavigate();
-  const { performanceData } = useLocation().state;
+  const [quizData, setQuizData] = useState([]);
+  const { performanceData, quizName, userEmail } = useLocation().state;
 
   const calculateScore = performanceData.correctAnswer;
 
@@ -73,6 +77,30 @@ const PerformancePage = ({ dynamicPathPrefix }) => {
     navigate(`${dynamicPathPrefix}/home`);
   };
 
+  useEffect(() => {
+    const fetchQuiz = async () => {
+      try {
+        const response = await axios.get(
+          `${reattemptQuiz}${userEmail}/${quizName}`
+        );
+        setQuizData(response.data.quiz);
+      } catch (error) {
+        console.error("Error fetching quiz:", error);
+      }
+    };
+    fetchQuiz();
+  }, [userEmail, quizName]);
+
+  const handleReAttemptQuiz = () => {
+    try {
+      navigate(`${dynamicPathPrefix}/quiz/${encodeURIComponent(quizName)}`, {
+        state: { quizData },
+      });
+    } catch (error) {
+      console.error("Error fetching quiz data:", error);
+    }
+  } 
+
   return (
     <>
       <h1 className="navbar">
@@ -82,13 +110,15 @@ const PerformancePage = ({ dynamicPathPrefix }) => {
         </div>
       </h1>
       <div className="performance-container">
-        <h2 className="summary-heading">Your Performance Summary</h2>
+        <img src={reattemptImg} alt="" className="reattempt-Img" onClick={handleReAttemptQuiz} />                   
+        <h2 className="summary-heading">Your Performance Summary </h2>
         <div className="performance-summary">
           <p className="summary-text">
             Total Questions: {performanceData.totalQuestions}
           </p>
           <p className="summary-text">
-            Correct Answers: {calculateScore?calculateScore:performanceData.correctAnswers}
+            Correct Answers:{" "}
+            {calculateScore ? calculateScore : performanceData.correctAnswers}
           </p>
           <p className="summary-text">
             Incorrect Answers: {performanceData.incorrectAnswers}

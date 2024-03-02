@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../styles/AttemptPreviousQuizzes.css";
 import homeImg from "../resources/home.png";
+const viewPerformancesEndpoint =
+  process.env.REACT_APP_VIEW_PERFORMANCES_ENDPOINT;
 
 const ViewPreviousPerformance = ({ dynamicPathPrefix, userEmail }) => {
   const navigate = useNavigate();
@@ -38,7 +40,7 @@ const ViewPreviousPerformance = ({ dynamicPathPrefix, userEmail }) => {
           selectedPerformance.quizName
         )}`,
         {
-          state: { performanceData: selectedPerformance },
+          state: { performanceData: selectedPerformance, quizName: selectedPerformance.quizName, userEmail: userEmail },
         }
       );
     } catch (error) {
@@ -50,7 +52,7 @@ const ViewPreviousPerformance = ({ dynamicPathPrefix, userEmail }) => {
     const fetchPerformances = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:6969/view/performances/${userEmail}`
+          `${viewPerformancesEndpoint}${userEmail}`
         );
 
         const performancesWithDates = response.data.performances.map(

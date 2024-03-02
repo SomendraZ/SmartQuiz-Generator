@@ -23,6 +23,16 @@
   .home-image {
     width: 3.5vw;
   }
+  .reattempt-Img{
+    width: 3.5vw;
+    margin-top: 0.5vw;
+    margin-left: 86vw;
+    transition: transform 0.5s ease;
+  }
+  .reattempt-Img:hover {
+    cursor: pointer;
+    transform: rotate(360deg);
+  }
   .performance-details h2 {
     font-size: 1.75vw;
   }
@@ -108,6 +118,16 @@
   .home-image {
     width: 3.5vh;
   }
+  .reattempt-Img{
+    width: 3.5vh;
+    margin-top: 0.5vh;
+    margin-left: 42.5vw;
+    transition: transform 0.5s ease;
+  }
+  .reattempt-Img:hover {
+    cursor: pointer;
+    transform: rotate(360deg);
+  } 
   .performance-details h2 {
     font-size: 1.75vh;
   }
@@ -128,7 +148,7 @@
     border-top: 0.25vh dashed rgb(255, 255, 255);
   }
   .performance-container {
-    background-color: #000000;
+    background-color: #222;
     width: 90vw;
     margin: 2vh auto;
     border-radius: 0.5vh;
@@ -146,7 +166,7 @@
     font-weight: bold;
   }
   .performance-details {
-    background-color: #000000;
+    background-color: #222;
     border-radius: 0.25vh;
     padding: 5vh;
   }

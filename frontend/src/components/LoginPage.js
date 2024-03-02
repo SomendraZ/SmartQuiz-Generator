@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import quizImage from "../resources/SQ.png";
 import "../styles/LoginPage.css";
+const googleAuthEndpoint = process.env.REACT_APP_GOOGLE_AUTH_ENDPOINT;
 
 const google =
   "https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png";
@@ -18,7 +19,7 @@ const LoginPage = ({ onLogin, dynamicPathPrefix }) => {
     onSuccess: async ({ code }) => {
       try {
         const response = await axios.post(
-          "http://localhost:6969/google/auth",
+          `${googleAuthEndpoint}`,
           null,
           {
             headers: {

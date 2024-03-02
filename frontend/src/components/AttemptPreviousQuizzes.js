@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../styles/AttemptPreviousQuizzes.css";
 import homeImg from "../resources/home.png";
+const viewPreviousQuizzesEndpoint =
+  process.env.REACT_APP_VIEW_PREVIOUS_QUIZZES_ENDPOINT;
 
 const AttemptPreviousQuizzes = ({ userEmail, dynamicPathPrefix }) => {
   const navigate = useNavigate();
@@ -19,7 +21,9 @@ const AttemptPreviousQuizzes = ({ userEmail, dynamicPathPrefix }) => {
       const selectedQuiz = quizzes[index];
       setQuizData(selectedQuiz);
       navigate(
-        `${dynamicPathPrefix}/quiz/${encodeURIComponent(selectedQuiz.quizName)}`,
+        `${dynamicPathPrefix}/quiz/${encodeURIComponent(
+          selectedQuiz.quizName
+        )}`,
         {
           state: { quizData: selectedQuiz },
         }
@@ -33,7 +37,7 @@ const AttemptPreviousQuizzes = ({ userEmail, dynamicPathPrefix }) => {
     const fetchQuizzes = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:6969/view/quizzes/${userEmail}`
+          `${viewPreviousQuizzesEndpoint}${userEmail}`
         );
         setQuizzes(response.data.quizzes);
       } catch (error) {

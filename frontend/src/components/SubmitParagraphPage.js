@@ -5,6 +5,7 @@ import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/SubmitParagraphPage.css";
 import homeImg from "../resources/home.png";
+const generateQuizEndpoint = process.env.REACT_APP_GENERATE_QUIZ_ENDPOINT;
 
 const SubmitParagraphPage = ({ dynamicPathPrefix, userEmail }) => {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ const SubmitParagraphPage = ({ dynamicPathPrefix, userEmail }) => {
         });
 
         const response = await axios.post(
-          "http://localhost:6969/generate/quiz",
+          `${generateQuizEndpoint}`,
           {
             quizName,
             userEmail,

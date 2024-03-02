@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import "../styles/QuizPage.css";
 import axios from "axios";
+const savePerformanceEndpoint = process.env.REACT_APP_SAVE_PERFORMANCE_ENDPOINT;
 
 const QuizPage = ({ dynamicPathPrefix, userEmail }) => {
   const navigate = useNavigate();
@@ -31,14 +32,16 @@ const QuizPage = ({ dynamicPathPrefix, userEmail }) => {
 
   useEffect(() => {
     if (performanceData !== null) {
-      axios.post("http://localhost:6969/save/performance", performanceData);
+      axios.post(`${savePerformanceEndpoint}`, performanceData);
       navigate(`${dynamicPathPrefix}/performance/${quizName}`, {
         state: {
           performanceData: performanceData,
+          quizName: quizName,
+          userEmail: userEmail,
         },
       });
     }
-  }, [performanceData, dynamicPathPrefix, navigate, quizName]);
+  }, [performanceData, dynamicPathPrefix, navigate, quizName, userEmail]);
 
   const handleAnswerClick = (optionIndex) => {
     const updatedUserAnswers = [...userAnswers, optionIndex];
